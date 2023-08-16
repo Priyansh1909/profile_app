@@ -9,14 +9,16 @@ connect()
 
 
 export async function GET(request){
-  if(!token) {
-    return NextResponse.json({data: {}}) 
-    }
-    
+ 
+
     let token
     if (request.cookies.get('Token')){
 
         token = request.cookies.get('Token').value 
+    }
+
+    if(!token) {
+        return NextResponse.json({data: {}}) 
     }
 
     console.log("ASDF", token)

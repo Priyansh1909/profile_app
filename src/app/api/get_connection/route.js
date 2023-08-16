@@ -17,6 +17,10 @@ export async function GET(request){
         token = request.cookies.get('Token').value 
     }
 
+    if(!token) {
+        return NextResponse.json({data: {}}) 
+    }
+
     // console.log(token)
     let Email;
     let id;
