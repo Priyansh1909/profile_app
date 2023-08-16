@@ -2,10 +2,13 @@
 
 import axios from "axios"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 
 export default function Connection(){
+
+    const router = useRouter()
 
     const [known,setknown] = useState([])
     const [unknown,setunknown] = useState([])
@@ -22,6 +25,7 @@ export default function Connection(){
                 console.log(data.data)
                 setknown(data.data.known)
                 setunknown(data.data.unknown)
+                setconnect(data.data.Connect)
                 
                 
             })
@@ -35,14 +39,22 @@ export default function Connection(){
         e.preventDefault()
 
         console.log(e.target.value)
-        setconnect([...connect,e.target.value])
+        if (connect.length == 0){
+            setconnect([e.target.value])
+            
+
+        }else{
+
+            setconnect([...connect,e.target.value])
+        }
 
         await axios.post('/api/add_connect',{
-            
-            users : connect
+            connect : e.target.value
         }).then((data)=>{
             console.log(data)
+            router.reload();
         })
+
 
 
 
@@ -67,7 +79,7 @@ export default function Connection(){
                 {known.map((item)=>{
                          let Postion 
                          let company_name 
-                        if (item.Experience.length() == 0){
+                        if (item.Experience.length == 0){
                              Postion = ''
                             company_name =  ''
                         }else{

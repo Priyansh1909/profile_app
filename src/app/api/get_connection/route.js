@@ -32,6 +32,8 @@ export async function GET(request){
     const connections = await User.findById(id)
         console.log(connections.Connections)
 
+    const connection_id = connections.Connections
+
 
     const all_user = await User.find({},["_id","fullName","Experience"])
 
@@ -46,7 +48,7 @@ export async function GET(request){
         if (all_user[x]._id == id){
             
         }
-        else if (all_user[x].id in connections.Connections){
+        else if (connection_id.includes(all_user[x].id)){
 
             known_user.push(all_user[x])
         }

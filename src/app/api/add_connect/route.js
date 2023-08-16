@@ -1,10 +1,8 @@
 require('dotenv').config()
 const User = require('../../../models/userinfo')
-
+const jwt = require('jsonwebtoken')
 import connect from "../../../DBconfig/DBconfig";
 import { NextResponse } from "next/server";
-const jwt = require('jsonwebtoken')
-
 
 
 connect()
@@ -29,15 +27,21 @@ export async function POST(req){
         console.log(error)
         return {messaage: "Invalid Token", status:false}
     }
-
     
-    const data = await req.json()
-    console.log("senddata :",data)
+     const currentUser = await User.findById(id)
+     const currentConnection = currentUser.Connections
 
-    console.log(data.user)
+     
+     
+     
+     const data = await req.json()
+     console.log("senddata :",data)
+     
+     currentConnection.push(data.connect)
+     console.log(currentConnection)
 
     await User.findByIdAndUpdate(id,{
-        Connections: data.user
+        Connections: currentConnection
     })
 
     return NextResponse.json({message:"User Edited Successfully"})
