@@ -9,7 +9,10 @@ connect()
 
 
 export async function GET(request){
-
+  if(!token) {
+    return NextResponse.json({data: {}}) 
+    }
+    
     let token
     if (request.cookies.get('Token')){
 
