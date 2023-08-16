@@ -54,6 +54,8 @@ import bcrpyt from 'bcrypt'
     .setExpirationTime('1d')
     .sign(secret);
 
+    console.log("WHAAT", typeof(token));
+
     const response = NextResponse.json({
         message : "Login Successfully",
         success: true

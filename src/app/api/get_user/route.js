@@ -16,7 +16,7 @@ export async function GET(request){
         token = request.cookies.get('Token').value 
     }
 
-    console.log(token)
+    console.log("ASDF", token)
     let Email;
     let id;
 
