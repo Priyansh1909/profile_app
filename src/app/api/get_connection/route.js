@@ -27,12 +27,14 @@ export async function GET(request){
             process.env.Token_secret,
         );
 
-        const claims = await jose.jwtVerify(token, secret, {
-            issuer: 'urn:example:issuer',
-            audience: 'urn:example:audience',
-          })
 
-          const decoded = claims.payload;
+        const { payload, protectedHeader } = await jose.compactVerify(token, secret)
+        // const claims = await jose.jwtVerify(token, secret, {
+        //     issuer: 'urn:example:issuer',
+        //     audience: 'urn:example:audience',
+        //   })
+
+          const decoded = JSON.parse(payload.toString());
 
         //   const claims = jose.decodeJwt(token)
           
