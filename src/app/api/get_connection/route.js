@@ -39,6 +39,7 @@ export async function GET(request){
 
     // console.log(all_user)
     // console.log(all_user[1].Experience[0][4])
+    
 
     let known_user = []
     let unknown_user = []
