@@ -46,11 +46,11 @@ import bcrpyt from 'bcrypt'
 
     const alg = 'HS256'
 
+    const iat = Math.floor(Date.now() / 1000);
+
     const token = await new SignJWT(token_data)
-    .setProtectedHeader({ alg })
-    .setIssuedAt()
-    .setIssuer('urn:example:issuer')
-    .setAudience('urn:example:audience')
+    .setProtectedHeader({ alg, type: 'JWT' })
+    .setIssuedAt(iat)
     .setExpirationTime('1d')
     .sign(secret);
 
