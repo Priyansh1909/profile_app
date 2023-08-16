@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/df3f3574-0cad-4e16-9372-072be0811fa6/resourceGroups/profile-app-nextjs/providers/Microsoft.Web/sites/profile-app-nextjs",
+    "appService.deploySubpath": "."
+}

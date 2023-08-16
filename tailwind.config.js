@@ -12,7 +12,29 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors:{
+        customBlue:'#1E2875',
+        HoverBlue:'#4353cf',
+        profile_bg: '#FFA78D',
+        navbar_font: '#373B5C',
+        navbar_background: '#FAFBFF',
+        profile_blue:'#1E2875',
+        edit_button: '#F0EFFA',
+        text_color: '#413B89',
+        remove_connection: '#BAB6EB'
+      },
+      width:{
+        p96: '96%',
+        rem59:'59rem'
+      },
+      gridTemplateColumns: {
+        sidebar: "300px auto", // 👈 for sidebar layout. adds grid-cols-sidebar class
+      }, 
+      gridTemplateRows: {
+        header: "64px auto", // 👈 for the navbar layout. adds grid-rows-header class
+      },
     },
+  
   },
   plugins: [],
 }

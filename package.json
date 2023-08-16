@@ -9,13 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "10.4.15",
+    "@heroicons/react": "^2.0.18",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "bootstrap": "^5.3.1",
+    "classnames": "^2.3.2",
+    "dotenv": "^16.3.1",
+    "encoding": "^0.1.13",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.13",
+    "jsonwebtoken": "^9.0.1",
+    "moment": "^2.29.4",
+    "mongodb-client-encryption": "^2.9.0",
+    "mongoose": "^7.4.3",
     "next": "13.4.13",
-    "postcss": "8.4.27",
+    "node-gyp": "^9.4.0",
+    "npm": "^9.8.1",
     "react": "18.2.0",
+    "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3"
+    "usehooks-ts": "^2.9.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "typescript": "5.1.6"
   }
 }
