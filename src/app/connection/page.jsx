@@ -52,12 +52,8 @@ export default function Connection(){
             connect : e.target.value
         }).then((data)=>{
             console.log(data)
-            router.reload();
+          window.location.reload();
         })
-
-
-
-
 
 
     }
@@ -89,7 +85,7 @@ export default function Connection(){
                         }
                     return(
 
-                        <div className="border-2 rounded-xl " key={1}>
+                        <div className="border-2 rounded-xl " key={item._id}>
                         <div className="flex">
                             <div className="m-4 text-xs">
                                 <div className="font-medium ">{item.fullName}</div>
@@ -130,7 +126,7 @@ export default function Connection(){
                    
                     return(
 
-                        <div className="border-2 rounded-xl "  key={1}>
+                        <div className="border-2 rounded-xl "  key={item._id}>
                         <div className="flex">
                             <div className="m-4 text-xs">
                                 <div className="font-medium ">{item.fullName}</div>

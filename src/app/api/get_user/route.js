@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken')
+const jose = require('jose')
 require('dotenv').config()
 const User = require('../../../models/userinfo')
 import connect from "../../../DBconfig/DBconfig";
@@ -21,10 +21,27 @@ export async function GET(request){
     let id;
 
     try {
-        const decoded = jwt.verify(token,process.env.Token_secret)
+
+        const secret = new TextEncoder().encode(
+            process.env.Token_secret,
+        );
+
+        const claims = await jose.jwtVerify(token, secret, {
+            issuer: 'urn:example:issuer',
+            audience: 'urn:example:audience',
+          })
+
+          const decoded = claims.payload;
+
+        //   const claims = jose.decodeJwt(token)
+          
+        console.log("PAYLOAD", decoded);
+        // const decoded = jwt.jwtVerify(token,process.env.Token_secret)
         console.log(decoded)
-        Email = decoded.Email
+        Email = decoded.email
         id = decoded.id
+
+        console.log(decoded.id);
         
 
     } catch (error) {
@@ -34,7 +51,7 @@ export async function GET(request){
     
 
     const user = await User.findById(id)
-        console.log(user.fullName)
+        console.log(user)
 
 
         const info ={fullname:user.fullName,

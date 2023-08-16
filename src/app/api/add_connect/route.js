@@ -1,6 +1,6 @@
 require('dotenv').config()
 const User = require('../../../models/userinfo')
-const jwt = require('jsonwebtoken')
+const jose = require('jose')
 import connect from "../../../DBconfig/DBconfig";
 import { NextResponse } from "next/server";
 
@@ -17,9 +17,23 @@ export async function POST(req){
     let id;
 
     try {
-        const decoded = jwt.verify(token,process.env.Token_secret)
+        const secret = new TextEncoder().encode(
+            process.env.Token_secret,
+        );
+
+        const claims = await jose.jwtVerify(token, secret, {
+            issuer: 'urn:example:issuer',
+            audience: 'urn:example:audience',
+          })
+
+          const decoded = claims.payload;
+
+        //   const claims = jose.decodeJwt(token)
+          
+        console.log("PAYLOAD", decoded);
+        // const decoded = jwt.jwtVerify(token,process.env.Token_secret)
         console.log(decoded)
-        Email = decoded.Email
+        Email = decoded.email
         id = decoded.id
         
 

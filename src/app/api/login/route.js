@@ -2,7 +2,7 @@ const User = require('../../../models/userinfo')
 import connect from "../../../DBconfig/DBconfig";
 require('dotenv').config()
 import { NextRequest,NextResponse } from "next/server";
-import jwt from 'jsonwebtoken';
+import { SignJWT } from 'jose';
 import bcrpyt from 'bcrypt'
 
 
@@ -37,7 +37,22 @@ import bcrpyt from 'bcrypt'
         email: email,
     }
 
-    const token = await jwt.sign(token_data,process.env.Token_secret,{expiresIn:'1d'})
+    //const token = await SignJWT(token_data,process.env.Token_secret,{expiresIn:'1d'})
+
+
+    const secret = new TextEncoder().encode(
+        process.env.Token_secret,
+      )
+
+    const alg = 'HS256'
+
+    const token = await new SignJWT(token_data)
+    .setProtectedHeader({ alg })
+    .setIssuedAt()
+    .setIssuer('urn:example:issuer')
+    .setAudience('urn:example:audience')
+    .setExpirationTime('1d')
+    .sign(secret);
 
     const response = NextResponse.json({
         message : "Login Successfully",
