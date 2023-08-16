@@ -65,7 +65,7 @@ export default function Profile(){
             <div className="absolute mt-32 ml-12 w-rem59 bg-white border-2 rounded-xl grid lg:grid-cols-2 p-4 gap-10">
                 <div className="grid gap-8">
                     <div className="flex justify-between">
-                        <Image src="/profile_pic.png" height={88} width={88} />
+                        <Image src="/profile_pic.png" height={88} width={88} alt="image" />
                         <button className="self-center  bg-edit_button rounded-2xl p-2 text-xs"  onClick={(e)=>{edit(e)}}>Upload Link</button>
                     </div>
                     <div className="border-2 p-4 text-xs rounded-xl">
@@ -151,7 +151,7 @@ export default function Profile(){
                                     <div>This are the professional detail show to <br/> users in the aapp</div>
                                 </div>
                                 <div>
-                                    <Image  src="/Stars.png" height={68} width={68}/> 
+                                    <Image  src="/Stars.png" height={68} width={68} alt="image"/> 
                                 </div>
 
                             </div>    
@@ -170,7 +170,7 @@ export default function Profile(){
                                 return(
                                     <div className="p-3 border-2 rounded-3xl mt-3" key={1}>
                                     <div className="flex justify-between mt-1">
-                                        <div><Image src='/Vector.png' height={30} width={30}/></div>
+                                        <div><Image src='/Vector.png' height={30} width={30} alt="image"/></div>
                                         <div className="mr-40">
                                             <div className="text-base font-medium">{item[0]}</div>
                                             <div>{item[1]}</div>
@@ -226,7 +226,7 @@ export default function Profile(){
                                                 <div className="pl-16">--{item[3]}</div>
                                             </div>
                                         </div>
-                                            <div><Image src='/company_name.png' height={60} width={60}/></div>     
+                                            <div><Image src='/company_name.png' height={60} width={60} alt="image"/></div>     
                                     </div>
                                 </div>
 

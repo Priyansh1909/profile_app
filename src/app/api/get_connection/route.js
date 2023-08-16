@@ -10,7 +10,12 @@ connect()
 
 export async function GET(request){
 
-    const token = request.cookies.get('Token').value
+
+    let token
+    if (request.cookies.get('Token')){
+
+        token = request.cookies.get('Token').value 
+    }
 
     // console.log(token)
     let Email;

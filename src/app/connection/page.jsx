@@ -89,7 +89,7 @@ export default function Connection(){
                         }
                     return(
 
-                        <div className="border-2 rounded-xl ">
+                        <div className="border-2 rounded-xl " key={1}>
                         <div className="flex">
                             <div className="m-4 text-xs">
                                 <div className="font-medium ">{item.fullName}</div>
@@ -97,7 +97,7 @@ export default function Connection(){
                                 <div>{company_name}</div>
                                 <div className="pt-6"><button className="bg-remove_connection rounded-2xl p-1">Remove Connection</button></div>
                             </div>
-                            <div className="flex "><Image src="/profile_pic.png" className="justify-center" width={150} height={88} /></div>
+                            <div className="flex "><Image src="/profile_pic.png" className="justify-center" width={150} height={88}  alt="image"/></div>
                         </div>       
                     </div>
 
@@ -130,7 +130,7 @@ export default function Connection(){
                    
                     return(
 
-                        <div className="border-2 rounded-xl " >
+                        <div className="border-2 rounded-xl "  key={1}>
                         <div className="flex">
                             <div className="m-4 text-xs">
                                 <div className="font-medium ">{item.fullName}</div>
@@ -138,7 +138,7 @@ export default function Connection(){
                                 <div>{company_name}</div>
                                 <div className="pt-6"><button className="bg-remove_connection rounded-2xl p-1" onClick={(e)=>{add_connection(e)}} value={item._id}>Connect</button></div>
                             </div>
-                            <div className="flex "><Image src="/profile_pic.png" className="justify-center" width={150} height={88} /></div>
+                            <div className="flex "><Image src="/profile_pic.png" className="justify-center" width={150} height={88} alt="image" /></div>
                         </div>       
                     </div>
 
