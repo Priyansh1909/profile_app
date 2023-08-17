@@ -33,7 +33,7 @@ export default function Sidebar({isOpen}){
                     <div id='links' >
                         <div className='flex mt-8 pl-4'>
                                 <Image  src="/chevronRight.svg" height={24} width={24} alt='rightarrow'/>
-                                <button  onClick={()=>{router.push('/connection')}}><span className='text-2xl px-8 py-2 ml-2 border-2 rounded-lg text-sidebar_link' >My Profile</span></button>
+                                <button  onClick={()=>{router.push('/profile')}}><span className='text-2xl px-8 py-2 ml-2 border-2 rounded-lg text-sidebar_link' >My Profile</span></button>
                         </div>
                         <div className='flex mt-8 pl-4'>
                                 <Image  src="/chevronRight.svg" height={24} width={24} alt='rightarrow'/>
