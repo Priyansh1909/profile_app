@@ -245,6 +245,13 @@ export default function Profile_edit() {
           <div className="mt-10">
             <form action="#">
 
+              <div className='mb-4'>
+              <button type="submit" className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in" onClick={(e) => { router.push('/profile') }}>
+                Skip For Now
+                </button>
+
+              </div>
+
 
               <div className="flex flex-col mb-6">
                 <label for="name" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Full Name</label>
