@@ -1,8 +1,24 @@
+## Live Demo available [here](http://20.235.127.135:9000/)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 
 ## Getting Started
 
-First, run the development server:
+Create a .env File with contains:
+  1. MongoDB url as MONGODB_URI
+  2. jwt token as Token_secret
+
+ ```sh
+
+# Contents of .env file
+ MONGODB_URI = "< enter a valid mongo db uri>"
+ Token_secret = "<Enter any random long secret>"
+ 
+ ```
+
+
+And run the development server:
 
 ```bash
 npm run dev
