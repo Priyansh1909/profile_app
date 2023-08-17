@@ -21,7 +21,6 @@ export async function GET(request){
         return NextResponse.json({data: {}}) 
     }
 
-    console.log("ASDF", token)
     let Email;
     let id;
 
@@ -33,18 +32,10 @@ export async function GET(request){
 
 
         const { payload, protectedHeader } = await jose.compactVerify(token, secret)
-        // const claims = await jose.jwtVerify(token, secret, {
-        //     issuer: 'urn:example:issuer',
-        //     audience: 'urn:example:audience',
-        //   })
 
           const decoded = JSON.parse(payload.toString());
 
-        //   const claims = jose.decodeJwt(token)
           
-        console.log("PAYLOAD", decoded);
-        // const decoded = jwt.jwtVerify(token,process.env.Token_secret)
-        console.log(decoded)
         Email = decoded.email
         id = decoded.id
         
@@ -56,7 +47,6 @@ export async function GET(request){
     
 
     const user = await User.findById(id)
-        console.log(user)
 
 
         const info ={fullname:user.fullName,

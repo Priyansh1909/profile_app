@@ -12,7 +12,6 @@ export async function POST(req){
 
     const token = req.cookies.get('Token').value
 
-    console.log(token)
     let Email;
     let id;
 
@@ -23,18 +22,10 @@ export async function POST(req){
 
 
         const { payload, protectedHeader } = await jose.compactVerify(token, secret)
-        // const claims = await jose.jwtVerify(token, secret, {
-        //     issuer: 'urn:example:issuer',
-        //     audience: 'urn:example:audience',
-        //   })
 
           const decoded = JSON.parse(payload.toString());
-
-        //   const claims = jose.decodeJwt(token)
           
-        console.log("PAYLOAD", decoded);
-        // const decoded = jwt.jwtVerify(token,process.env.Token_secret)
-        console.log(decoded)
+
         Email = decoded.email
         id = decoded.id
 
@@ -52,10 +43,9 @@ export async function POST(req){
      
      
      const data = await req.json()
-     console.log("senddata :",data)
+
      
      currentConnection.push(data.connect)
-     console.log(currentConnection)
 
     await User.findByIdAndUpdate(id,{
         Connections: currentConnection

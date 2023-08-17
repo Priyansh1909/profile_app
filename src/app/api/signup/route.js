@@ -15,12 +15,10 @@ import bcrpyt from 'bcrypt'
  export  async function POST(req){
 
     const reqBody = await req.json()
-    console.log(reqBody)
 
     const email = reqBody.Email
 
     const name = reqBody.name
-    console.log(name)
 
 
     const user = await User.findOne({email})
@@ -38,7 +36,6 @@ import bcrpyt from 'bcrypt'
     const salt = await bcrpyt.genSalt(10)
     const hashpassword = await bcrpyt.hash(reqBody.password, salt)
 
-    console.log(hashpassword)
 
     const newuser = await new User({
          fullName:name,
@@ -48,9 +45,6 @@ import bcrpyt from 'bcrypt'
 
     const saveduser = await newuser.save()
 
-    console.log("add new user  is",saveduser)
-    console.log("add new user id is",saveduser._id)
-
     const idToString = saveduser._id.toString()
 
     const token_data = {
@@ -58,7 +52,6 @@ import bcrpyt from 'bcrypt'
       email: email,
   }
 
-  //const token = await SignJWT(token_data,process.env.Token_secret,{expiresIn:'1d'})
 
 
   const secret = new TextEncoder().encode(

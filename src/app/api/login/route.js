@@ -13,7 +13,6 @@ import bcrpyt from 'bcrypt'
 
  export  async function POST(req){
     const reqBody = await req.json()
-    console.log(reqBody)
 
     const email = reqBody.Email
     const password = reqBody.password
@@ -39,7 +38,6 @@ import bcrpyt from 'bcrypt'
         email: email,
     }
 
-    //const token = await SignJWT(token_data,process.env.Token_secret,{expiresIn:'1d'})
 
 
     const secret = new TextEncoder().encode(
@@ -56,7 +54,6 @@ import bcrpyt from 'bcrypt'
     .setExpirationTime('1d')
     .sign(secret);
 
-    console.log("WHAAT", typeof(token));
 
     const response = NextResponse.json({
         message : "Login Successfully",

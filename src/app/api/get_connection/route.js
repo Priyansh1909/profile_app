@@ -21,7 +21,6 @@ export async function GET(request){
         return NextResponse.json({data: {}}) 
     }
 
-    // console.log(token)
     let Email;
     let id;
 
@@ -33,18 +32,10 @@ export async function GET(request){
 
 
         const { payload, protectedHeader } = await jose.compactVerify(token, secret)
-        // const claims = await jose.jwtVerify(token, secret, {
-        //     issuer: 'urn:example:issuer',
-        //     audience: 'urn:example:audience',
-        //   })
 
           const decoded = JSON.parse(payload.toString());
 
-        //   const claims = jose.decodeJwt(token)
           
-        console.log("PAYLOAD", decoded);
-        // const decoded = jwt.jwtVerify(token,process.env.Token_secret)
-        console.log(decoded)
         Email = decoded.email
         id = decoded.id
 
@@ -58,15 +49,12 @@ export async function GET(request){
     
 
     const connections = await User.findById(id)
-        console.log(connections.Connections)
 
     const connection_id = connections.Connections
 
 
     const all_user = await User.find({},["_id","fullName","Experience"])
 
-    // console.log(all_user)
-    // console.log(all_user[1].Experience[0][4])
     
 
     let known_user = []
@@ -86,9 +74,6 @@ export async function GET(request){
         }
     }
 
-        console.log("kNOWS ARE :", known_user)
-
-        console.log("not kNOWS ARE :", unknown_user)
 
 
 
