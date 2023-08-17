@@ -51,14 +51,14 @@ export default function Profile() {
 
     return (
         <>
-            <div className="flex">
+            <div className="flex justify-center">
 
                 <div className="lg:w-p75 xs:w-full  border-2 h-48 bg-profile_blue text-white rounded-xl absolute fixed my-2 ">
                     <div className="lg:px-2 lg:py-2 xs:p-0">
                         My Profile
                     </div>
                 </div>
-                <div className=" relative mt-32 lg:ml-12 lg:w-rem59 xs:w-screen xs:ml-0 bg-white border-2 rounded-xl grid lg:grid-cols-2 p-4 gap-10">
+                <div className=" relative mt-32 lg:w-rem59 xs:w-screen xs:ml-0 bg-white border-2 rounded-xl grid lg:grid-cols-2 p-4 gap-10">
                     <div className="grid gap-8">
                         <div className="flex justify-between">
                             <Image src="/profile_pic.png" height={88} width={88} alt="image" />
