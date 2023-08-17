@@ -21,14 +21,15 @@ export default function Sidebar({isOpen}){
 
     console.log("is open ", isOpen)
     return(
-        <div className='object-left  border-2  h-screen'>
-            <div>
+
+        isOpen?<div className='h-screen sticky fixed'>
+            <div c>
                 <div className=' mt-5 h-12 text-3xl flex pl-12 justify-center'>
                     <span className=' px-8  border-2 rounded-lg font-medium'>Dashboard</span>
                 </div>
                 
                 
-                <div className='grid gap-rem36 grid-rows-1'>
+                <div className='grid gap-rem36 grid-rows-1 '>
 
                     <div id='links' >
                         <div className='flex mt-8 pl-4'>
@@ -49,6 +50,9 @@ export default function Sidebar({isOpen}){
 
             </div>
             <div className=''></div>
+        </div>:<div>
+
         </div>
+
     )
 }

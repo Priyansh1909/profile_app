@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
     setSidebarOpen(!sidebarOpen);
   };
 
+
   if (path == '/login' || path =='/signup' || path == '/profile_edit'){
     
     return (
@@ -39,9 +40,6 @@ export default function RootLayout({ children }) {
 
     )
   }
-
-
-
 
   return (
 //     <html lang="en">

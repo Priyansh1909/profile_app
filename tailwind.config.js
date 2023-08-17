@@ -25,7 +25,7 @@ module.exports = {
         sidebar_link:'#1A1558'
       },
       width:{
-        p96: '96%',
+        p75: '75%',
         rem59:'59rem'
       },
       gridTemplateColumns: {
@@ -36,6 +36,9 @@ module.exports = {
       },
       gap:{
         rem36: '36rem'
+      },
+      screens:{
+        xs:'374px'
       }
     },
   

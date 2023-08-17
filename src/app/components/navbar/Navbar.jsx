@@ -26,11 +26,14 @@ export default function Navbar({toggleSidebar,sidebarOpen}){
     }
 
 
+
     return (
         <>
       
-            <div className="w-full  flex justify-end pr-11 pl-11 pt-4 pb-4 h-24 border-b-2 bg-navbar_background">
-          {/* <button onClick={(e)=>collapse(e)}>Heelo</button> */}
+            <div className="w-full  flex justify-between pr-11 pl-11 pt-4 pb-4 h-24 border-b-2 bg-navbar_background">
+                <div>
+                    <button onClick={(e)=>collapse(e)}>Menu</button>
+                </div>
             <div className="w-80 h-14 flex gap-4">
                 <div className=" py-2.5 gap-2.5">
                     <Image src="/Notification.png" className='item-center' width={28} height={28} alt='notifcation' />

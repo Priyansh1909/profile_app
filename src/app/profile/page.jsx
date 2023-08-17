@@ -57,16 +57,16 @@ export default function Profile(){
         <>
         <div className="flex">
 
-            <div className="w-p96 border-2 h-48 bg-profile_blue text-white rounded-xl relative my-2 ">
+            <div className="lg:w-p75 xs:screen border-2 h-48 bg-profile_blue text-white rounded-xl absolute fixed my-2 ">
                 <div className="px-2 py-2">
                     My Profile
                     </div>
             </div>
-            <div className="absolute mt-32 ml-12 w-rem59 bg-white border-2 rounded-xl grid lg:grid-cols-2 p-4 gap-10">
+            <div className=" relative mt-32 ml-12 w-rem59  bg-white border-2 rounded-xl grid lg:grid-cols-2 p-4 gap-10">
                 <div className="grid gap-8">
                     <div className="flex justify-between">
-                        <Image src="/profile_pic.png" height={88} width={88} alt="image" />
-                        {/* <button className="self-center  bg-edit_button rounded-2xl p-2 text-xs"  onClick={(e)=>{edit(e)}}>Upload Link</button> */}
+                        <Image src="/profile_pic.png" height={88} width={88}  alt="image" />
+                        {/* <button className="self-center  bg-edit_button rounded-2xl -2 text-xs"  onClick={(e)=>{edit(e)}}>Upload Link</button> */}
                     </div>
                     <div className="border-2 p-4 text-xs rounded-xl">
                         <div>
