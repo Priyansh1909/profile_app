@@ -66,7 +66,7 @@ export default function Profile(){
                 <div className="grid gap-8">
                     <div className="flex justify-between">
                         <Image src="/profile_pic.png" height={88} width={88} alt="image" />
-                        <button className="self-center  bg-edit_button rounded-2xl p-2 text-xs"  onClick={(e)=>{edit(e)}}>Upload Link</button>
+                        {/* <button className="self-center  bg-edit_button rounded-2xl p-2 text-xs"  onClick={(e)=>{edit(e)}}>Upload Link</button> */}
                     </div>
                     <div className="border-2 p-4 text-xs rounded-xl">
                         <div>

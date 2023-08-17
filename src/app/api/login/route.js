@@ -22,13 +22,15 @@ import bcrpyt from 'bcrypt'
     const user = await User.findOne({email})
 
     if(!user){
-        return NextResponse.json("Email does not exists")
+        return NextResponse.json({message : "Email does not exists",
+        success: false})
     }
 
     const validatePassword = await bcrpyt.compare(password,user.password)
 
     if(!validatePassword){
-        return NextResponse.json("Invalid Password")
+        return NextResponse.json({message : "Invalid Password",
+        success: false})
     }
 
     

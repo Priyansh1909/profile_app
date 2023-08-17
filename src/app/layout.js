@@ -6,6 +6,7 @@ import Sidebar from './components/sidebar/Sidebar'
 
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { useState } from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,6 +20,12 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children }) {
 
   const path = usePathname()
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
 
   if (path == '/login' || path =='/signup' || path == '/profile_edit'){
     
@@ -37,18 +44,36 @@ export default function RootLayout({ children }) {
 
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="grid grid-flow-col">
-        <div className="col-span-auto h-screen">
-          <Sidebar />
-        </div>
-        <div className="col-span-12">
-          <Navbar />
-          <div className='h-screen'> {children}</div>
-        </div>
-</div>
-        </body>
-    </html>
+//     <html lang="en">
+      
+//       <body className={inter.className}>
+        
+//         <div className="grid grid-flow-col">
+//         <div className="col-span-auto h-screen">
+//           <Sidebar />
+//         </div>
+//         <div className="col-span-12">
+//           <Navbar />
+//           <div className='h-screen'> {children}</div>
+//         </div>
+// </div>
+//         </body>
+//     </html>
+<html lang="en">
+      
+<body className={inter.className}>
+  
+<div className="flex h-full">
+      <Sidebar isOpen={sidebarOpen} />
+      <div className="flex-1 border-l-2">
+        <Navbar toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
+        <main className="p-4">
+          {children}
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+    
   )
 }

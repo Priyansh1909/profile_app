@@ -21,7 +21,8 @@ module.exports = {
         profile_blue:'#1E2875',
         edit_button: '#F0EFFA',
         text_color: '#413B89',
-        remove_connection: '#BAB6EB'
+        remove_connection: '#BAB6EB',
+        sidebar_link:'#1A1558'
       },
       width:{
         p96: '96%',
@@ -33,6 +34,9 @@ module.exports = {
       gridTemplateRows: {
         header: "64px auto", // 👈 for the navbar layout. adds grid-rows-header class
       },
+      gap:{
+        rem36: '36rem'
+      }
     },
   
   },

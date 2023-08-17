@@ -13,6 +13,8 @@ export default function Connection(){
     const [known,setknown] = useState([])
     const [unknown,setunknown] = useState([])
     const [connect,setconnect] = useState([])
+    const [disconnect,setdisconnect] = useState([])
+
 
 
 
@@ -59,6 +61,31 @@ export default function Connection(){
     }
 
 
+    const delete_connection = async(e)=>{
+
+        e.preventDefault()
+
+        console.log(e.target.value)
+
+        if (disconnect.length == 0){
+            setdisconnect([e.target.value])
+            
+
+        }else{
+
+            setdisconnect([...connect,e.target.value])
+        }
+
+        await axios.post('/api/remove_connect',{
+            disconnect : e.target.value
+        }).then((data)=>{
+            console.log(data)
+          window.location.reload();
+        })
+
+    }
+
+
 
     return(
         <>
@@ -91,7 +118,7 @@ export default function Connection(){
                                 <div className="font-medium ">{item.fullName}</div>
                                 <div className="pt-4">{Postion}</div>
                                 <div>{company_name}</div>
-                                <div className="pt-6"><button className="bg-remove_connection rounded-2xl p-1">Remove Connection</button></div>
+                                <div className="pt-6"><button className="bg-remove_connection rounded-2xl p-1" value={item._id}  onClick={(e)=>delete_connection(e)}>Remove Connection</button></div>
                             </div>
                             <div className="flex "><Image src="/profile_pic.png" className="justify-center" width={150} height={88}  alt="image"/></div>
                         </div>       
