@@ -23,10 +23,10 @@ export default function Profile(){
 
     useEffect(()=>{
 
-        console.log("on load")
+        // console.log("on load")
         axios.get('/api/get_user',).then((data)=>{
 
-            console.log("GET DATA", data.data);
+            // console.log("GET DATA", data.data);
             const result = data.data.data
             Setname(result.fullname)
             Setemail(result.email)
