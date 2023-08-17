@@ -7,7 +7,7 @@ import { redirect, useRouter } from 'next/navigation'
 
 
 
-export default function({isOpen}){
+export default function Sidebar({isOpen}){
     const router = useRouter()
 
 
